@@ -1,0 +1,41 @@
+
+body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #222;
+    font-size: 125%;
+}
+
+header {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+main.card {
+    display: inline-flex;
+    justify-content: space-between;
+    border: 3px solid green;
+    width: 100%;
+    max-width: 1400px;
+    margin:20px 40px;
+}
+
+
+
+.search {
+    display: block;
+    border: 2px solid white;
+    color: white;
+    width: 100%;
+    max-width: 310px;
+    height: 600px;
+}
+
+
