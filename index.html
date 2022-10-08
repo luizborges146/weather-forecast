@@ -4,12 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
 
+    <header>
+        <p1>Weather Dashboard</p1>
+    </header>
 
-    
+    <main class="card">
+        <div class="search">
+            <div class="div-search">
+                <p2>Search for a city</p2>
+                <input type="text" class="search-bar" placeholder="Please enter a city name">
+                <button>Search</button>
+            </div>
+        </div>
+
+        <div class="weather-info">
+            <p2>Current forecast</p2>
+            <div class="today-weather"></div>
+            <div class="week-weather"></div>
+
+        </div>
+
+
+    </main>
+
+
+    <script src="./assets/js/script.js" defer></script><!-- it makes the js file be read first than the HTML -->
+
 </body>
 </html>
 
