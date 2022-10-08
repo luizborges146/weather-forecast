@@ -23,7 +23,7 @@ main.card {
     justify-content: space-between;
     border: 3px solid green;
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1100px; */
     margin:20px 40px;
 }
 
@@ -38,4 +38,10 @@ main.card {
     height: 600px;
 }
 
+.today-weather {
+    border: 2px solid blue;
+    width: 900px;
+    height: 200px;
+    padding: 25px;
+}
 
