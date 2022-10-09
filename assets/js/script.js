@@ -16,7 +16,7 @@ let weather={
     },
     displayWeather:function(data) {
         console.log(data);
-        var {name} = data.city.name;
+        const {name} = data.city.name;
         var {icon,description} = data.list[0].weather[0];
         var {temp,humidity} = data.list[0].main;
         var {speed} = data.list[0].wind;
@@ -27,10 +27,17 @@ let weather={
                     + " \nHumidity: " + humidity 
                     + " \nWind speed: " + speed
                     );
-
-        var city = document.querySelectorAll(".city")//.innerText = "Weather today in " + name;
-        for(var i = 0; i < city.length; i++){
-            city.innerText = "Weather today in " + name;
-        };
+        document.querySelector(".city").innerText = "Weather today in " + name;
+        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon +".png";
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind Speed: " + speed + "Km/h";
+        // for(var i = 0; i < city.length; i++){
+        //     city.innerText = "Weather today in " + name;
+        // };
+    },
+    search:function(){
+        this.fetchWeather(document.querySelector(".search-bar").value)
     }
-}
+};
