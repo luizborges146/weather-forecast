@@ -16,7 +16,7 @@ let weather={
     },
     displayWeather:function(data) {
         console.log(data);
-        const {name} = data.city.name;
+        var name = data.city.name;// ask the support assistance tomorrow
         var {icon,description} = data.list[0].weather[0];
         var {temp,humidity} = data.list[0].main;
         var {speed} = data.list[0].wind;
@@ -41,3 +41,13 @@ let weather={
         this.fetchWeather(document.querySelector(".search-bar").value)
     }
 };
+
+document.querySelector(".search button").addEventListener("click", function(){
+    weather.search();
+});
+
+document.querySelector(".search-bar").addEventListener("keyup",function(event){
+    if(event.key == "Enter") {
+        weather.search();
+    }
+})
