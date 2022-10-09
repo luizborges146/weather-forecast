@@ -17,6 +17,7 @@ let weather={
     displayWeather:function(data) {
         console.log(data);
         var name = data.city.name;// ask the support assistance tomorrow
+        var nameCountry = data.city.country;
         var {icon,description} = data.list[0].weather[0];
         var {temp,humidity} = data.list[0].main;
         var {speed} = data.list[0].wind;
@@ -27,7 +28,7 @@ let weather={
                     + " \nHumidity: " + humidity 
                     + " \nWind speed: " + speed
                     );
-        document.querySelector(".city").innerText = "Weather today in " + name;
+        document.querySelector(".city").innerText = "Weather today in " + name + " / " + nameCountry;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C";
