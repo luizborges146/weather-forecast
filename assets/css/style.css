@@ -18,6 +18,7 @@ body {
     background: #222;
     font-size: 125%;
     width: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
@@ -49,7 +50,12 @@ main.card {
     color: white;
     width: 100%;
     max-width: 310px;
-    height: 600px;
+    height: 100%;
+    padding: 10px;
+}
+.div-search{
+    border-bottom: 2px solid white;
+    margin-bottom: 20px;
 }
 
 input.search-bar {
@@ -58,6 +64,9 @@ input.search-bar {
     margin: 5px 0px;
     border-radius: 20px;
     padding-left: 10px;
+    border: none;
+    outline: none;
+    font-size: 100%;
 }
 
 button {
@@ -65,7 +74,21 @@ button {
     height: 2em;
     margin-bottom: 5px;
     border-radius: 20px;
+    cursor: pointer;
 }
+
+button:hover {
+    background: #f7f5f5de;
+}
+
+.btn {
+    width: 100%;
+    height: 2em;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
 
 /*---------------------------- related to the weather ---*/
 .weather-info {
