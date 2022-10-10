@@ -23,9 +23,9 @@ var weather={
 
         .then( (response) => {
             if (response.ok) {
-              console.log(response);
+                console.log(city + " Checking if this is the right one 111111111111111111111111");
               response.json().then((data) =>{
-                console.log(data);
+                //console.log(data);
                 this.displayWeather(data);
               });
             } else {
@@ -35,21 +35,21 @@ var weather={
           })
     },
     displayWeather:function(weatherDt) {
-        console.log(weatherDt);
+        ///////////////////////////////////////////////////////////////console.log(weatherDt);
         var {name} = weatherDt;// ask the support assistance tomorrow
         var {country} = weatherDt.sys;
         var {icon,description} = weatherDt.weather[0];
         var {temp,humidity} = weatherDt.main;
         var {speed} = weatherDt.wind;
         // var {dt_text} = data.list[0]dt_text;
-        console.log("City name: " + name
-                    + " \nsymbol :" + icon 
-                    + " \nWeather Desc : " + description
-                    + " \nTemperature " + temp
-                    + " \nHumidity: " + humidity 
-                    + " \nWind speed: " + speed
-                    // + " \nDate: " + dt_text
-                    );
+        // console.log("City name: " + name
+        //             + " \nsymbol :" + icon 
+        //             + " \nWeather Desc : " + description
+        //             + " \nTemperature " + temp
+        //             + " \nHumidity: " + humidity 
+        //             + " \nWind speed: " + speed
+        //             // + " \nDate: " + dt_text
+        //             );
         document.querySelector(".city").innerText = "Weather today in " + name + " / " + country;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector(".description").innerText = description;
@@ -73,13 +73,13 @@ var weather={
 
     },
     displayWeatherW:function(data) {
-        console.log(data);
-        var name = data.city.name;
+        //console.log(data);
+        //var name = data.city.name;
         for (var i = 0; i < 5; i++){
             var {icon, description} = data.list[i*8].weather[0];
             var {temp, humidity} = data.list[i*8].main;
             var { speed } = data.list[i*8].wind;
-            console.log(name,icon,description,temp,humidity,speed + " Test if this is going to be displayed");
+            //console.log(name,icon,description,temp,humidity,speed + " Test if this is going to be displayed");
 
         // document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector("#icon"+(i) ).src = "https://openweathermap.org/img/wn/" + icon +".png";
