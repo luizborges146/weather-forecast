@@ -1,9 +1,9 @@
 var apiKey="18f2b4783decaf3b750cf7554dde6fa5";
 
 var input = document.getElementById("input");
-console.log(input);
 
-var saved =[];
+var localStg = [];
+console.log(localStg);
 
 var weather={
     /* ##################### Current Weather ###################################*/
@@ -23,7 +23,9 @@ var weather={
 
         .then( (response) => {
             if (response.ok) {
-                console.log(city + " Checking if this is the right one 111111111111111111111111");
+                // console.log(city + " Checking if this is the right one 111111111111111111111111");
+                localStorage.setItem(("city" + (localStg.length)), city);
+                localStg[localStg.length] = city;
               response.json().then((data) =>{
                 //console.log(data);
                 this.displayWeather(data);
