@@ -1,4 +1,10 @@
 var apiKey="18f2b4783decaf3b750cf7554dde6fa5";
+
+var input = document.getElementById("input");
+console.log(input);
+
+var saved =[];
+
 var weather={
     /* ##################### Current Weather ###################################*/
     fetchWeather:function(city){
@@ -73,13 +79,18 @@ var weather={
 
     /* ##################### End Weekly Weather ###################################*/
     search:function(){
-        this.fetchWeather(document.querySelector(".search-bar").value)
-        this.fetchweatherW(document.querySelector(".search-bar").value)
+
+        console.log("testing to see when this is going to be displaied");
+        console.log(search1);
+        this.fetchWeather(document.querySelector(".search-bar").value);
+        //this.fetchweatherW(document.querySelector(".search-bar").value);
+  
+
     }
     
     
 };
-document.querySelector(".search button").addEventListener("click", function(){
+var search1 = document.querySelector(".search button").addEventListener("click", function(){
     weather.search();
 });
 document.querySelector(".search-bar").addEventListener("keyup",function(event){
@@ -91,5 +102,6 @@ weather.fetchWeather("London");
 weather.fetchWeatherW("London");
 
 
-/*-------------------------------------- WEEKLY weather info-----------------------------------------*/
+/*-------------------------WEEKLY weather info-----------------------------*/
 
+localStorage.setItem("input", input.value);
