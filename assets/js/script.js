@@ -1,9 +1,10 @@
 var apiKey="18f2b4783decaf3b750cf7554dde6fa5";
 
 var input = document.getElementById("input");
+var cityContainer = document.querySelector("#cityContainer");
 
 var localStg = [];
-console.log(localStg);
+//console.log(localStg);
 
 var weather={
     /* ##################### Current Weather ###################################*/
@@ -24,8 +25,10 @@ var weather={
         .then( (response) => {
             if (response.ok) {
                 // console.log(city + " Checking if this is the right one 111111111111111111111111");
-                localStorage.setItem(("city" + (localStg.length)), city);
+                //localStorage.setItem("city" ,JASON.stringfy(city));
                 localStg[localStg.length] = city;
+                localStorage.setItem("cities", JSON.stringify(localStg));
+                //console.log(localStg);
               response.json().then((data) =>{
                 //console.log(data);
                 this.displayWeather(data);
@@ -90,20 +93,15 @@ var weather={
         document.querySelector("#humidity"+(i)).innerText = "Humidity: " + humidity + "%";
         document.querySelector("#wind"+(i)).innerText = "Wind Speed: " + speed + "Km/h";
         }
+        displayCity();
     },
 
     /* ##################### End Weekly Weather ###################################*/
     search:function(){
 
-        console.log("testing to see when this is going to be displaied");
-        console.log(search1);
         this.fetchWeather(document.querySelector(".search-bar").value);
         this.fetchWeatherW(document.querySelector(".search-bar").value);
-  
-
     }
-    
-    
 };
 var search1 = document.querySelector(".search button").addEventListener("click", function(){
     weather.search();
@@ -113,10 +111,35 @@ document.querySelector(".search-bar").addEventListener("keyup",function(event){
         weather.search();
     }
 })
-weather.fetchWeather("London");
-weather.fetchWeatherW("London");
+// weather.fetchWeather("London");
+// weather.fetchWeatherW("London");
 
 
 /*-------------------------WEEKLY weather info-----------------------------*/
+function displayCity() { // save in the array the localStorage information
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
+    if (storedCities !== null) {
+        localStg = storedCities;
+        //console.log(localStg);
+        addCityDisplay()
+    }    
+}
 
-// localStorage.setItem("input", input.value);
+function addCityDisplay() {
+    
+    for (var i = 0; i < localStg.length; i++){
+        var stgCity = localStg[i];
+        console.log(localStg);
+        console.log(i);
+
+        var div = document.createElement("div");
+        div.textContent = stgCity;
+        
+        div.setAttribute("class","btn");
+        console.log(div + "Check the result");
+
+        //cityContainer.appendChild(div);
+
+    }
+}
+
