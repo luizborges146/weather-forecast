@@ -56,19 +56,19 @@ var weather={
     displayWeatherW:function(data) {
         console.log(data);
         var name = data.city.name;
-        // for (var i = 0; i < 1; i++){
-            var {icon, description} = data.list[0].weather[0];
-            var {temp, humidity} = data.list[0].main;
-            var { speed } = data.list[0].wind;
+        for (var i = 0; i < 5; i++){
+            var {icon, description} = data.list[i*8].weather[0];
+            var {temp, humidity} = data.list[i*8].main;
+            var { speed } = data.list[i*8].wind;
             console.log(name,icon,description,temp,humidity,speed + " Test if this is going to be displayed");
 
         // document.querySelector(".city").innerText = "Weather in " + name;
-        // document.querySelector("#icon0").src = "https://openweathermap.org/img/wn/" + icon +".png";
-        //document.querySelector(".description0").innerText = description;
-        document.querySelector(".temp0").innerText = temp + "°C";
-        // document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-        // document.querySelector(".wind").innerText = "Wind Speed: " + speed + "Km/h";
-        // }
+        document.querySelector("#icon"+(i) ).src = "https://openweathermap.org/img/wn/" + icon +".png";
+        document.querySelector("#description"+(i)).innerText = description;
+        document.querySelector("#temp"+(i)).innerText = Math.round(temp) + "°C";
+        document.querySelector("#humidity"+(i)).innerText = "Humidity: " + humidity + "%";
+        document.querySelector("#wind"+(i)).innerText = "Wind Speed: " + speed + "Km/h";
+        }
     },
 
     /* ##################### End Weekly Weather ###################################*/
