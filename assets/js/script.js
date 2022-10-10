@@ -126,7 +126,7 @@ function displayCity() { // save in the array the localStorage information
 }
 
 function addCityDisplay() {
-    
+    cityContainer.innerHTML = "";
     for (var i = 0; i < localStg.length; i++){
         var stgCity = localStg[i];
         console.log(localStg);
@@ -138,7 +138,7 @@ function addCityDisplay() {
         div.setAttribute("class","btn");
         console.log(div + "Check the result");
 
-        //cityContainer.appendChild(div);
+        cityContainer.appendChild(div);
 
     }
 }
