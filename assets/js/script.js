@@ -18,16 +18,29 @@ var weather={
             // + "&units=metric&appid="
             // + this.apiKey
         )
-        .then((response) => response.json())
-        .then((data) => this.displayWeather(data));
+        // .then((response) => response.json())
+        // .then((data) => this.displayWeather(data));
+
+        .then( (response) => {
+            if (response.ok) {
+              console.log(response);
+              response.json().then((data) =>{
+                console.log(data);
+                this.displayWeather(data);
+              });
+            } else {
+              alert('Error: ' + response.statusText);
+              return;
+            }
+          })
     },
-    displayWeather:function(data) {
-        console.log(data);
-        var {name} = data;// ask the support assistance tomorrow
-        var {country} = data.sys;
-        var {icon,description} = data.weather[0];
-        var {temp,humidity} = data.main;
-        var {speed} = data.wind;
+    displayWeather:function(weatherDt) {
+        console.log(weatherDt);
+        var {name} = weatherDt;// ask the support assistance tomorrow
+        var {country} = weatherDt.sys;
+        var {icon,description} = weatherDt.weather[0];
+        var {temp,humidity} = weatherDt.main;
+        var {speed} = weatherDt.wind;
         // var {dt_text} = data.list[0]dt_text;
         console.log("City name: " + name
                     + " \nsymbol :" + icon 
@@ -83,7 +96,7 @@ var weather={
         console.log("testing to see when this is going to be displaied");
         console.log(search1);
         this.fetchWeather(document.querySelector(".search-bar").value);
-        //this.fetchweatherW(document.querySelector(".search-bar").value);
+        this.fetchWeatherW(document.querySelector(".search-bar").value);
   
 
     }
@@ -104,4 +117,4 @@ weather.fetchWeatherW("London");
 
 /*-------------------------WEEKLY weather info-----------------------------*/
 
-localStorage.setItem("input", input.value);
+// localStorage.setItem("input", input.value);
