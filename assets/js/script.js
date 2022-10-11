@@ -115,13 +115,14 @@ function addCityDisplay() {
 
         var button = document.createElement("button");
         button.textContent = stgCity;
+        
+
+        button.setAttribute("class","btn");
+        // console.log(button);
         button.addEventListener("click", function(){
             weather.fetchWeather(stgCity);
             weather.fetchWeatherW(stgCity);
         });
-
-        button.setAttribute("class","btn");
-        // console.log(button);
 
         cityContainer.appendChild(button);
     }
