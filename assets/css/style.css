@@ -23,7 +23,6 @@ body {
 }
 
 header {
-    background-color: ;
     margin: 0px;
     padding:20px;
     display: flex;
@@ -144,9 +143,11 @@ button:hover {
 footer{
     background-color: var(--dark-back-c);
     width: 100%;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     height: 40px;
     margin-top: 15px;
+    color:var(--letter-color);
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
