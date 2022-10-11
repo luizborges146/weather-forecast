@@ -145,7 +145,7 @@ var currentTime = function() {
         var currentDate = moment();
         // console.log(currentDate.toString());
         currentDate.add(i,"days");
-        currentDate = moment(currentDate).format(" MM/DD/YYYY");
+        currentDate = moment(currentDate).format("ddd, MM/DD");
         console.log(currentDate);
         date[i].innerText = currentDate;
 
