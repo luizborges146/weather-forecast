@@ -18,9 +18,13 @@ var weather={
             + apiKey
         )
         .then( (response) => {
+            city = city.trim(); // remove spaces from user input
+            city = city.toLowerCase(); // save the input as lower case 
+            console.log(localStg);
             if (response.ok) {
-                if(localStg.includes(city) === false){
-                    localStg[localStg.length] = city;
+                if(localStg.includes(city) === false){// will check if the user has already added an iunput
+                    localStg[localStg.length] = city;// it will save the information inside an array
+                    console.log(localStg);// will display on cosoleLog that the information saved on the array
                     localStorage.setItem("cities", JSON.stringify(localStg));
                 }
                 //console.log(localStg);
@@ -41,14 +45,7 @@ var weather={
         var {icon,description} = weatherDt.weather[0];
         var {temp,humidity} = weatherDt.main;
         var {speed} = weatherDt.wind;
-        // console.log("City name: " + name
-        //             + " \nsymbol :" + icon 
-        //             + " \nWeather Desc : " + description
-        //             + " \nTemperature " + temp
-        //             + " \nHumidity: " + humidity 
-        //             + " \nWind speed: " + speed
-        //             // + " \nDate: " + dt_text
-        //             );
+
         document.querySelector(".city").innerText = "Weather today in " + name + " / " + country;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector(".description").innerText = description;
@@ -124,7 +121,7 @@ function addCityDisplay() {
         });
 
         button.setAttribute("class","btn");
-        console.log(button);
+        // console.log(button);
 
         cityContainer.appendChild(button);
     }
@@ -132,13 +129,7 @@ function addCityDisplay() {
 displayCity();
 
 var currentTime = function() {
-    // var currentDate = moment();
-    // console.log(currentDate.toString());
-    // var i = 2;
-    // currentDate.add(i,"days");
-    // console.log(currentDate.toString());
-    // currentDate = moment(currentDate).format("dddd, MMMM DD YYYY");
-    // console.log(currentDate);
+
     
     var date = document.querySelectorAll("p");
     for (var i =0; i<date.length;i++) {
@@ -146,7 +137,7 @@ var currentTime = function() {
         // console.log(currentDate.toString());
         currentDate.add(i,"days");
         currentDate = moment(currentDate).format("ddd, MM/DD");
-        console.log(currentDate);
+        // console.log(currentDate);
         date[i].innerText = currentDate;
 
         
