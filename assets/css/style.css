@@ -87,6 +87,15 @@ button:hover {
     margin-bottom: 5px;
     border-radius: 20px;
     cursor: pointer;
+    background-color: var(--letter-color);
+    padding-left: 15px;
+    padding-top: 4px;
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+}
+.btn:hover {
+    background: #f7f5f5de;
 }
 
 

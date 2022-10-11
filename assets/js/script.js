@@ -1,10 +1,12 @@
-var apiKey="18f2b4783decaf3b750cf7554dde6fa5";
+var apiKey="18f2b4783decaf3b750cf7554dde6fa5"; //Api key to be used in the current weather and forecast weather
 
-var input = document.getElementById("input");
+
 var cityContainer = document.querySelector("#cityContainer");
+
 
 var localStg = [];
 //console.log(localStg);
+displayCity();
 
 var weather={
     /* ##################### Current Weather ###################################*/
@@ -14,10 +16,6 @@ var weather={
             + city 
             + "&units=metric&appid=" 
             + apiKey
-            // "https://api.openweathermap.org/data/2.5/forecast?q="
-            // + city
-            // + "&units=metric&appid="
-            // + this.apiKey
         )
         // .then((response) => response.json())
         // .then((data) => this.displayWeather(data));
@@ -61,9 +59,7 @@ var weather={
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " + speed + "Km/h";
-        // for(var i = 0; i < city.length; i++){
-        //     city.innerText = "Weather today in " + name;
-        // };
+
     },
     /* ##################### Weekly Weather ###################################*/
     fetchWeatherW:function(city) {
@@ -79,14 +75,12 @@ var weather={
     },
     displayWeatherW:function(data) {
         //console.log(data);
-        //var name = data.city.name;
         for (var i = 0; i < 5; i++){
             var {icon, description} = data.list[i*8].weather[0];
             var {temp, humidity} = data.list[i*8].main;
             var { speed } = data.list[i*8].wind;
             //console.log(name,icon,description,temp,humidity,speed + " Test if this is going to be displayed");
 
-        // document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector("#icon"+(i) ).src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector("#description"+(i)).innerText = description;
         document.querySelector("#temp"+(i)).innerText = Math.round(temp) + "°C";
@@ -103,16 +97,16 @@ var weather={
         this.fetchWeatherW(document.querySelector(".search-bar").value);
     }
 };
-var search1 = document.querySelector(".search button").addEventListener("click", function(){
+document.querySelector(".search button").addEventListener("click", function(){
     weather.search();
 });
+
 document.querySelector(".search-bar").addEventListener("keyup",function(event){
     if(event.key == "Enter") {
         weather.search();
     }
 })
-// weather.fetchWeather("London");
-// weather.fetchWeatherW("London");
+
 
 
 /*-------------------------WEEKLY weather info-----------------------------*/
@@ -124,7 +118,6 @@ function displayCity() { // save in the array the localStorage information
         addCityDisplay()
     }    
 }
-
 function addCityDisplay() {
     cityContainer.innerHTML = "";
     for (var i = 0; i < localStg.length; i++){
@@ -136,10 +129,18 @@ function addCityDisplay() {
         div.textContent = stgCity;
         
         div.setAttribute("class","btn");
-        console.log(div + "Check the result");
+        console.log(div);
 
         cityContainer.appendChild(div);
-
     }
 }
+displayCity();
 
+document.getElementsByClassName(".btn").addEventListener("click", weather.search());
+
+// btn.addEventListener("click", function(event){
+//     var element = event.target;
+//     console.log(element);
+// })
+   
+// document.querySelectorAll(".btn").addEventListner("click", weather.search());
