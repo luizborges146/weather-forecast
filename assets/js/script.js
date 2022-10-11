@@ -1,11 +1,9 @@
+// check with TA line 118
+
 var apiKey="18f2b4783decaf3b750cf7554dde6fa5"; //Api key to be used in the current weather and forecast weather
-
-
 var cityContainer = document.querySelector("#cityContainer");
-
-
 var localStg = [];
-//console.log(localStg);
+
 displayCity();
 
 var weather={
@@ -39,13 +37,12 @@ var weather={
           })
     },
     displayWeather:function(weatherDt) {
-        ///////////////////////////////////////////////////////////////console.log(weatherDt);
-        var {name} = weatherDt;// ask the support assistance tomorrow
+        var {name} = weatherDt;// add the info into the variable
         var {country} = weatherDt.sys;
         var {icon,description} = weatherDt.weather[0];
         var {temp,humidity} = weatherDt.main;
         var {speed} = weatherDt.wind;
-
+        // applies the current weather to the screen
         document.querySelector(".city").innerText = "Weather today in " + name + " / " + country;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector(".description").innerText = description;
@@ -115,14 +112,15 @@ function addCityDisplay() {
 
         var button = document.createElement("button");
         button.textContent = stgCity;
-        
-
-        button.setAttribute("class","btn");
-        // console.log(button);
-        button.addEventListener("click", function(){
+        button.addEventListener("click", function(event){// check with TA line 115
+            var stgCity = event.target.textContent;
+            console.log(stgCity);
             weather.fetchWeather(stgCity);
             weather.fetchWeatherW(stgCity);
         });
+
+        button.setAttribute("class","btn");
+        // console.log(button);
 
         cityContainer.appendChild(button);
     }
