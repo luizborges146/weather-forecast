@@ -132,20 +132,20 @@ function addCityDisplay() {
 displayCity();
 
 var currentTime = function() {
-    var currentDate = moment();
-    console.log(currentDate.toString());
-    var i = 2;
-    currentDate.add(i,"days");
-    console.log(currentDate.toString());
-    currentDate = moment(currentDate).format("dddd, MMMM DD YYYY");
-    console.log(currentDate);
+    // var currentDate = moment();
+    // console.log(currentDate.toString());
+    // var i = 2;
+    // currentDate.add(i,"days");
+    // console.log(currentDate.toString());
+    // currentDate = moment(currentDate).format("dddd, MMMM DD YYYY");
+    // console.log(currentDate);
     
     var date = document.querySelectorAll("p");
     for (var i =0; i<date.length;i++) {
         var currentDate = moment();
         // console.log(currentDate.toString());
         currentDate.add(i,"days");
-        currentDate = moment(currentDate).format("ddd, MM/DD/YYYY");
+        currentDate = moment(currentDate).format(" MM/DD/YYYY");
         console.log(currentDate);
         date[i].innerText = currentDate;
 
