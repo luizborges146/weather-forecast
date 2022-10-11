@@ -22,12 +22,12 @@ var weather={
 
         .then( (response) => {
             if (response.ok) {
-                // console.log(city + " Checking if this is the right one 111111111111111111111111");
-                //localStorage.setItem("city" ,JASON.stringfy(city));
-                localStg[localStg.length] = city;
-                localStorage.setItem("cities", JSON.stringify(localStg));
+                if(localStg.includes(city) === false){
+                    localStg[localStg.length] = city;
+                    localStorage.setItem("cities", JSON.stringify(localStg));
+                }
                 //console.log(localStg);
-              response.json().then((data) =>{
+                response.json().then((data) =>{
                 //console.log(data);
                 this.displayWeather(data);
               });
