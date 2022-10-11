@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" ></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -14,7 +15,7 @@
 <body>
 
     <header>
-        <p1>Weather Dashboard</p1>
+        <h1>Weather Dashboard</h1>
     </header>
 
     <main class="card">
@@ -29,7 +30,7 @@
             <div class="savedCity">
                 <h3>Saved Cities:</h3>
                 <div class="cityContainer" id="cityContainer">
-                    
+
                 </div>
 
             </div>
@@ -40,8 +41,9 @@
         <div class="weather-info">
             <!-- *********************************TODAY WEATHER************************** -->
             <div class="today-weather">
-                <p2>Current forecast</p2>
+                <p>Current forecast</p>
                 <div class="today">
+                    <h3 class="date"></h2>
                     <h2 class="city">Weather in Londrina</h2>
                     <h1 class="temp">51°C</h1>
                     <div class="flex">
@@ -55,7 +57,7 @@
         <!-- *****************************Weekly Weather********************************* -->
             <div class="week-weather">
                 <div class="week-day">
-                    <!-- <h2 class="city">Weather in Londrina 000000000000000</h2> -->
+                    <p>Current forecast</p>
                     <h1 class="temp" id="temp0">51°C</h1>
                     <div class="flex">
                         <img class ="icon" id ="icon0" src="https://openweathermap.org/img/wn/02d.png" alt="" class="" />
@@ -66,7 +68,7 @@
                 </div>
 
                 <div class="week-day">
-                    <!-- <h2 class="city">Weather in Londrina 1111111111111111</h2> -->
+                    <p>Current forecast</p>
                     <h1 class="temp" id="temp1">51°C</h1>
                     <div class="flex">
                         <img class ="icon" id ="icon1" src="https://openweathermap.org/img/wn/02d.png" alt="" class="" />
@@ -77,7 +79,7 @@
                 </div>
 
                 <div class="week-day">
-                    <!--<h2 class="city">Weather in Londrina</h2> -->
+                    <p>Current forecast</p>
                     <h1 class="temp" id="temp2">51°C</h1>
                     <div class="flex">
                         <img class ="icon" id ="icon2" src="https://openweathermap.org/img/wn/02d.png" alt="" class="" />
@@ -88,7 +90,7 @@
                 </div>
 
                 <div class="week-day">
-                    <!-- <h2 class="city">Weather in Londrina</h2> -->
+                    <p>Current forecast</p>
                     <h1 class="temp" id="temp3">51°C</h1>
                     <div class="flex">
                         <img class ="icon" id ="icon3" src="https://openweathermap.org/img/wn/02d.png" alt="" class="" />
@@ -99,7 +101,7 @@
                 </div>
 
                 <div class="week-day">
-                    <!-- <h2 class="city">Weather in Londrina</h2> -->
+                    <p>Current forecast</p>
                     <h1 class="temp" id="temp4">51°C</h1>
                     <div class="flex">
                         <img class ="icon" id ="icon4" src="https://openweathermap.org/img/wn/02d.png" alt="" class="" />
@@ -114,7 +116,9 @@
 
     <footer>Test</footer>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./assets/js/script.js" defer></script><!-- it makes the js file be read first than the HTML -->
 
 </body>

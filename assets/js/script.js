@@ -17,9 +17,6 @@ var weather={
             + "&units=metric&appid=" 
             + apiKey
         )
-        // .then((response) => response.json())
-        // .then((data) => this.displayWeather(data));
-
         .then( (response) => {
             if (response.ok) {
                 if(localStg.includes(city) === false){
@@ -44,7 +41,6 @@ var weather={
         var {icon,description} = weatherDt.weather[0];
         var {temp,humidity} = weatherDt.main;
         var {speed} = weatherDt.wind;
-        // var {dt_text} = data.list[0]dt_text;
         // console.log("City name: " + name
         //             + " \nsymbol :" + icon 
         //             + " \nWeather Desc : " + description
@@ -74,12 +70,10 @@ var weather={
 
     },
     displayWeatherW:function(data) {
-        //console.log(data);
         for (var i = 0; i < 5; i++){
             var {icon, description} = data.list[i*8].weather[0];
             var {temp, humidity} = data.list[i*8].main;
             var { speed } = data.list[i*8].wind;
-            //console.log(name,icon,description,temp,humidity,speed + " Test if this is going to be displayed");
 
         document.querySelector("#icon"+(i) ).src = "https://openweathermap.org/img/wn/" + icon +".png";
         document.querySelector("#description"+(i)).innerText = description;
@@ -114,7 +108,6 @@ function displayCity() { // save in the array the localStorage information
     var storedCities = JSON.parse(localStorage.getItem("cities"));
     if (storedCities !== null) {
         localStg = storedCities;
-        //console.log(localStg);
         addCityDisplay()
     }    
 }
@@ -122,8 +115,6 @@ function addCityDisplay() {
     cityContainer.innerHTML = "";
     for (var i = 0; i < localStg.length; i++){
         var stgCity = localStg[i];
-        console.log(localStg);
-        console.log(i);
 
         var button = document.createElement("button");
         button.textContent = stgCity;
@@ -132,10 +123,6 @@ function addCityDisplay() {
             weather.fetchWeatherW(stgCity);
         });
 
-        // button.addEventListener("click", function(){
-        //     weather.search(stgCity);
-        // });
-        
         button.setAttribute("class","btn");
         console.log(button);
 
@@ -144,13 +131,26 @@ function addCityDisplay() {
 }
 displayCity();
 
+var currentTime = function() {
+    var currentDate = moment();
+    console.log(currentDate.toString());
+    var i = 2;
+    currentDate.add(i,"days");
+    console.log(currentDate.toString());
+    currentDate = moment(currentDate).format("dddd, MMMM DD YYYY");
+    console.log(currentDate);
+    
+    var date = document.querySelectorAll("p");
+    for (var i =0; i<date.length;i++) {
+        var currentDate = moment();
+        // console.log(currentDate.toString());
+        currentDate.add(i,"days");
+        currentDate = moment(currentDate).format("ddd, MM/DD/YYYY");
+        console.log(currentDate);
+        date[i].innerText = currentDate;
 
+        
+    }
+}
+currentTime();
 
-// document.getElementsByClassName(".btn").addEventListener("click", weather.search());
-
-// btn.addEventListener("click", function(event){
-//     var element = event.target;
-//     console.log(element);
-// })
-   
-// document.querySelectorAll(".btn").addEventListner("click", weather.search());
