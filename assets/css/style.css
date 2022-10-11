@@ -132,12 +132,16 @@ button:hover {
 }
 
 .week-day {
-    border: 2px dotted white;
+    border: 2px solid var(--dark-back-c);
     padding: 20px;
     color: #cbbebe;
     margin: 15px;
     min-width: 200px;
     height: 300px;
+    border-radius: 25px;
+    background-color: var(--dark-back-c);
+    box-shadow: 5px 10px 18px var(--dark-back-c);
+    
 }
 
 footer{
