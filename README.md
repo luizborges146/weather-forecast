@@ -1,12 +1,13 @@
 # Description
 
-This is a wethaer dashboard to show the user the current weather for a specific location. It also display the weather for the next 5 days forecast, easy display and also user friendly layout. The apllied dark colors in the background and light colors on the information that I want the user to focus, making it simple to visualise the data.
+This is a weather dashboard to show the user the current weather for a specific location. It also display the weather for the next 5 days forecast, easy display and also user friendly layout. The applied dark colors in the background and light colors on the information makes it simple to visualise the data.
 
 The project use the API from [OpenWeathermap](https://api.openweathermap.org) to get the current weather information and also the forecast. Not only that, I create a saved cities, so the user can easily access the cities they already checked the weather with one click.
 
 
 
-### Link to the Scheduler: [Scheduler](https://luizborges146.github.io/Scheduler/)
+
+### Weather Dashboard: [Scheduler](https://luizborges146.github.io/Scheduler/)
 
 ## Installation
 
@@ -15,42 +16,44 @@ N/A
 ## Usage
 
 * Functionalities:
- * Allow user to add information on the text box.
- * Information will be saved in localStorage, so even if the user reload the page, the information will ramin there.
- * Timer will be displayed at the top of the page
- * The user input field, change color according the time:
-        * Gray - represents the past.
-        * Red - represents the current time.
-        * Green - represents the upcoming time.
+ * Allow user to add a location to check the current weather.
+ * Display current weather and 5 days forecast
+ * User can select search or press enter once the location is added to the field
+ * Saved cities, so the user can re-check in a click the weather that was already search:
+
+
 
  
-#### Function below represents the time and also the schedule to change the field color, as the time runs, the field will change color automatically, there is no need for the user to click in the reload page to check the information.
+#### Function below represents the fetch function where it uses the API to get the 5 days forecast, using variables to make it more dynamic, so the user can check it by city name;
  ```
-var updateTime = function () {
-    var currentDate = moment().format("dddd, MMMM DD YYYY");
-    var currentTime = moment().format(':mm:ss');
-    var currentHour = moment().format('HH');
-    $("#timer").text(currentDate + " --   " + currentHour + currentTime)
-    var timeColor = document.querySelectorAll("input");
-    // console.log(timeColor.length);
-    // console.log(typeof(currentHour));
+fetch(
+            "https://api.openweathermap.org/data/2.5/forecast?q="
+            + city 
+            + "&units=metric&appid=" 
+            + apiKey
+        )
+        .then((response) => response.json())
+        .then((data) => this.displayWeatherW(data));
 
-    for (var i = 0; i < timeColor.length; i++) {
-        console.log(timeColor[i]);
-        if ((i + 9) < currentHour) {
-            timeColor[i].classList.add("beforeTime");//gray
-        } else if (i + 9 == currentHour){
-            timeColor[i].classList.add("onTime"); //red
-        } else if (i + 9 >= currentHour) {
-            timeColor[i].classList.add("afterTime"); //green
-        }
-    }
-
- }
-updateTime()
-setInterval(updateTime, 1000);
-
+    },
  ```
+
+#### Function below represents is an if statement where JavaScript will check if the response was ok or 200 and if the information below has already being added to the localStorage, if not, save the information on the local storage.
+ ```
+.then( (response) => {
+            city = city.trim(); // remove spaces from user input
+            city = city.toLowerCase(); // save the input as lower case 
+            console.log(localStg);
+            if (response.ok) {
+                if(localStg.includes(city) === false){// will check if the user has already added an iunput
+                    localStg[localStg.length] = city;// it will save the information inside an array
+                    console.log(localStg);// will display on cosoleLog that the information saved on the array
+                    localStorage.setItem("cities", JSON.stringify(localStg));
+                }
+                //console.log(localStg);
+                response.json().then((data) =>{
+ ```
+
 
 
 ## External support documentation
