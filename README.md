@@ -7,7 +7,7 @@ The project use the API from [OpenWeathermap](https://api.openweathermap.org) to
 
 
 
-### Weather Dashboard: [Scheduler](https://luizborges146.github.io/Scheduler/)
+### Weather Dashboard: [Scheduler](https://luizborges146.github.io/weather-forecast/)
 
 ## Installation
 
