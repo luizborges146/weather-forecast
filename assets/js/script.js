@@ -125,18 +125,28 @@ function addCityDisplay() {
         console.log(localStg);
         console.log(i);
 
-        var div = document.createElement("div");
-        div.textContent = stgCity;
-        
-        div.setAttribute("class","btn");
-        console.log(div);
+        var button = document.createElement("button");
+        button.textContent = stgCity;
+        button.addEventListener("click", function(){
+            weather.fetchWeather(stgCity);
+            weather.fetchWeatherW(stgCity);
+        });
 
-        cityContainer.appendChild(div);
+        // button.addEventListener("click", function(){
+        //     weather.search(stgCity);
+        // });
+        
+        button.setAttribute("class","btn");
+        console.log(button);
+
+        cityContainer.appendChild(button);
     }
 }
 displayCity();
 
-document.getElementsByClassName(".btn").addEventListener("click", weather.search());
+
+
+// document.getElementsByClassName(".btn").addEventListener("click", weather.search());
 
 // btn.addEventListener("click", function(event){
 //     var element = event.target;
