@@ -4,10 +4,9 @@ This is a weather dashboard to show the user the current weather for a specific 
 
 The project use the API from [OpenWeathermap](https://api.openweathermap.org) to get the current weather information and also the forecast. Not only that, I create a saved cities, so the user can easily access the cities they already checked the weather with one click.
 
-
-
-
 ### Weather Dashboard: [Scheduler](https://luizborges146.github.io/weather-forecast/)
+
+![alt weatherHomePage](assets/images/weather_page.png)
 
 ## Installation
 
